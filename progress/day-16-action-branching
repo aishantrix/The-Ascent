@@ -1,0 +1,64 @@
+# Day 16 — Action Branching
+
+## Objective
+
+Convert AI lead classification into different business actions.
+
+## Previous Architecture
+
+Lead Input → Validation → AI → Structured Output → Decision
+
+## Day 16 Addition
+
+The workflow now routes leads to different actions based on AI classification.
+
+## Action Matrix
+
+| AI Category | Business Action |
+|---|---|
+| Hot | Priority Follow-up |
+| Warm | Nurture |
+| Cold | Low Priority |
+| Human Review | Human Review |
+
+## Workflow Logic
+
+IF Hot?
+- TRUE → Priority Follow-up
+- FALSE → check Warm
+
+IF Warm?
+- TRUE → Nurture
+- FALSE → check Cold
+
+IF Cold?
+- TRUE → Low Priority
+- FALSE → Human Review
+
+## Testing
+
+### Hot Lead
+Expected: Priority Follow-up
+Result: Passed
+
+### Warm Lead
+Expected: Nurture
+Result: Passed
+
+### Cold Lead
+Expected: Low Priority
+Result: Passed
+
+### Human Review Lead
+Expected: Human Review
+Result: Passed
+
+## Key Learning
+
+AI classification and business lifecycle actions are separate concepts.
+
+The AI determines the lead category, while workflow logic determines what business action should happen next.
+
+## Status
+
+Completed
